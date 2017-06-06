@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block body %}
+    {% set question_fields = {'SUB_TIME': 0, 'VIEW': 1, 'VOTE': 2, 'TITLE': 3} %}
+    <ul>
+    {% for item in table %}
+        <li> {{ item[question_fields['TITLE']] }} </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
