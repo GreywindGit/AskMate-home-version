@@ -7,6 +7,7 @@
     </head>
     <body>
         {% block body %}
+        <a href="/new-question"><button>Ask Question</button></a>
         {% set question_fields = {'SUB_TIME': 0, 'VIEW': 1, 'VOTE': 2, 'TITLE': 3} %}
         <ul>
         {% for item in table %}
@@ -14,5 +15,7 @@
         </ul>
         {% endfor %}
         {% endblock %}
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="/static/js/main.js"></script>
     </body>
 </html>
