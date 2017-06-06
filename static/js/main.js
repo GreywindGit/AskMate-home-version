@@ -1,6 +1,6 @@
 function main() {
     $('li').hide();
-    $('li').fadeIn(4000);
+    $('li').fadeIn(2000);
 }
 
 
