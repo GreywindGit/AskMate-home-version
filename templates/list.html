@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 
 {% block body %}
+    <a href="/new-question"><button>Ask Question</button></a>
     {% set question_fields = {'ID': 0, 'SUB_TIME': 1, 'VIEW': 2, 'VOTE': 3, 'TITLE': 4} %}
     <ul>
     {% for item in table %}
