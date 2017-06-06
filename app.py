@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     table = bll.get_five_recent_questions()
-    return render_template('index.html', table=table, page_title='Main Page')
+    return render_template('index.html', table=table, page_title='Main Page', main=True)
 
 
 @app.route('/list')
@@ -33,6 +33,12 @@ def ask_new_question():
     bll.add_new_question(new_question)
     return redirect('/')
 
+
+@app.route('/question/<question_id>')
+def show_question_details(question_id):
+    content = bll.get_question_details(question_id)[0]
+    page_title = content[4]
+    return render_template('display-question.html', content=content, page_title=page_title)
 
 if __name__ == '__main__':
     app.run(debug=True)

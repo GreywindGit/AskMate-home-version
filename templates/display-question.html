@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+
+{% block body %}
+{% set fields = {'SUB_TIME': 1, 'VIEW': 2, 'VOTE': 3, 'TITLE': 4, 'USER': 5, 'MESSAGE': 6} %}
+    <p> {{ content[fields['TITLE']] }} </p>
+    <div> {{ content[fields['MESSAGE']] }} </div>
+{% endblock %}
