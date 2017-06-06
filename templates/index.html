@@ -4,10 +4,13 @@
         <title>AskMate - {% block title %} {{ page_title }} {% endblock %}</title>
         <meta name="description" content="AskMate knowledge base">
         <meta name="keywords" content="programming">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     </head>
     <body>
         {% if not main %}
         <a href="/"><button>Main Page</button></a>
+        {% else %}
+        <a href="/list"><button>List All Questions</button></a>
         {% endif %}
         {% block body %}
         <a href="/new-question"><button>Ask Question</button></a>
@@ -15,8 +18,8 @@
         <ul>
         {% for item in table %}
             <a href="/question/{{ item[question_fields['ID']] }}"><li> {{ item[question_fields['TITLE']]  }} </li></a>
-        </ul>
         {% endfor %}
+        </ul>
         {% endblock %}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="/static/js/main.js"></script>
