@@ -24,7 +24,7 @@ def show_question_form():
 
 @app.route('/new-question', methods=["POST"])
 def ask_new_question():
-    submission_time = datetime.now()
+    submission_time = datetime.now().replace(microsecond=0)
     view_number = 0
     vote_number = 0
     question_title = request.form['question_title']
@@ -36,6 +36,7 @@ def ask_new_question():
 
 @app.route('/question/<question_id>')
 def show_question_details(question_id):
+    bll.increase_view_number(question_id)
     content = bll.get_question_details(question_id)[0]
     page_title = content[4]
     return render_template('display-question.html', content=content, page_title=page_title)

@@ -2,6 +2,8 @@
 
 {% block body %}
 {% set fields = {'SUB_TIME': 1, 'VIEW': 2, 'VOTE': 3, 'TITLE': 4, 'USER': 5, 'MESSAGE': 6} %}
-    <p> {{ content[fields['TITLE']] }} </p>
+    <p> {{ content[fields['TITLE']] }} Viewed: {{ content[fields['VIEW']] }} time{% if content[fields['VIEW']] > 1 %}s{% endif %}</p>
     <div> {{ content[fields['MESSAGE']] }} </div>
+    <div> {{ content[fields['SUB_TIME']] }} </div>
+    <div> Submitted by: {{ content[fields['USER']] }} </div>
 {% endblock %}
