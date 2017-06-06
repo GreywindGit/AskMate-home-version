@@ -10,3 +10,9 @@ def get_all_questions():
     sql_string = 'SELECT submission_time, view_number, vote_number, title FROM question ORDER BY submission_time;'
     return dal.get_data_from_table(sql_string)
 
+
+def add_new_question(new_question):
+    sql_string = 'INSERT INTO question (submission_time, view_number, vote_number, title, message) \
+                  VALUES(%s, %s, %s, %s, %s);'
+    sql_variables = (new_question[0], new_question[1], new_question[2], new_question[3], new_question[4])
+    dal.modify_table(sql_string, sql_variables)
