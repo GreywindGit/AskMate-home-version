@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 
 {% block body %}
-    {% set question_fields = {'SUB_TIME': 0, 'VIEW': 1, 'VOTE': 2, 'TITLE': 3} %}
+    {% set question_fields = {'ID': 0, 'SUB_TIME': 1, 'VIEW': 2, 'VOTE': 3, 'TITLE': 4} %}
     <ul>
     {% for item in table %}
-        <li> {{ item[question_fields['TITLE']] }} </li>
+        <a href='/question/{{ item[question_fields["ID"]] }}'><li> {{ item[question_fields['TITLE']] }} </li></a>
     {% endfor %}
     </ul>
 {% endblock %}
